@@ -13,9 +13,21 @@ define(["moment"], function(moment) {
 		this.difference = ko.observable(Math.round((this.lastPrice() - this.previousClose) * 100) / 100);
 		this.differenceClass = ko.observable(this.difference() < 0 ? "diff diffMinus" : "diff diffPlus");
 		this.formattedTime = ko.observable(this.time().format("HH:mm"));
+		
+		this.oldValues = {
+			lastPrice: undefined
+		};
+		
+		this.hasChanged = ko.observable(false);
+		
+		this.lastPrice.subscribe(function() {
+			this.hasChanged(this.oldValues.lastPrice && this.oldValues.lastPrice !== this.lastPrice());
+		}.bind(this));
 	};
 	
 	Stock.prototype.merge = function(oldStock) {
+		this.oldValues.lastPrice = this.lastPrice();
+		
 		this.lastPrice(oldStock.lastPrice());
 		this.time(oldStock.time());
 		this.difference(oldStock.difference());

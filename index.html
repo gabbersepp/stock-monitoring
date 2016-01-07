@@ -6,7 +6,7 @@
 
 		<script src="scripts/moment.js"></script>
 		<script src="scripts/underscore.js"></script>
-		
+
         <script data-main="main.js" src="scripts/require.js"></script>
 		<link rel="stylesheet" href="css/bootstrap.css">
 		<link rel="stylesheet" href="css/custom.css">
@@ -27,7 +27,7 @@
 								<div class="col-md-2"><span class="label-default">Datum: </span></div>					
 							</div>
 							<div data-bind="foreach: stocks">
-								<div class="row">
+								<div class="row stockRow" data-bind="notifyChangeInRow:{hasChanged:$data.hasChanged, controlColor: $data.difference()}">
 									<div class="col-md-2"><div data-bind="text:$data.name"></div></div>
 									<div class="col-md-2"><div data-bind="text:$data.previousClose"></div></div>
 									<div class="col-md-2"><div data-bind="text:$data.lastPrice"></div> </div>
