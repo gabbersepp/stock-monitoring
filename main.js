@@ -22,7 +22,7 @@ require(["knockout", "stockPrices/stockPrices", "nachrichten/nachrichten", "util
 		//ko.applyBindings(stockPrices, $bottom[0]);
 		ko.applyBindings(footer, $footer[0]);
 		
-		refresh.refresh(stockPrices.load.bind(stockPrices), 60);
+		refresh.refresh(stockPrices.load.bind(stockPrices), 70);
 		refresh.refresh(nachrichten.load.bind(nachrichten), 60*15);
 	});
 });

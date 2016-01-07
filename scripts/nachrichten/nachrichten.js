@@ -1,4 +1,4 @@
-define(["./finanznachrichten/finanznachrichten", "./finanznachrichten/entry", "knockout"], function(finanznachrichten, Entry, ko) {
+define(["./finanznachrichten/finanznachrichten", "knockout"], function(finanznachrichten, ko) {
 	var max = 2;
 	var Finanznachrichten = function() {
 		this.newsPerStock = ko.observableArray([]);
@@ -6,21 +6,29 @@ define(["./finanznachrichten/finanznachrichten", "./finanznachrichten/entry", "k
 	};
 	
 	Finanznachrichten.prototype.load = function() {
-		this.newsPerStock([]);
 		var deferreds = finanznachrichten.loadMulti(this.ids);
 		
 		for(var i = 0; i < deferreds.length; i++) {
 			var deferred = deferreds[i];
 			deferred.done(function(data) {
+				var underlying = this.newsPerStock();
 				var entries = finanznachrichten.fromXml(data);
 				var news = [];
 				var stockName = entries.stock;
+				var newsForStock = _.find(underlying, {stockName: stockName});
 				
 				for(var i = 0; i < entries.news.length && i < max; i++) {
-					news.push(entries.news[i]);
+					if(newsForStock) {
+						var oldNews = newsForStock.news[i];
+						oldNews.merge.call(oldNews, entries.news[i]);
+					}else{
+						news.push(entries.news[i]);
+					}
 				}
 					
-				this.newsPerStock.push({stockName: stockName, news: news});
+				if(!newsForStock) {
+					this.newsPerStock.push({stockName: stockName, news: news});
+				}
 
 			}.bind(this));
 		}

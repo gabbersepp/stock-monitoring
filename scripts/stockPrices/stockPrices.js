@@ -5,12 +5,12 @@ define(["yahoo/yahoo", "yahoo/stock", "knockout"], function(yahoo, Stock, ko) {
 	};
 	
 	StockPrices.prototype.load = function() {
-		var underlying = this.stocks();
 		var deferreds = yahoo.loadPrices(this.symbols);
 		
 		for(var i = 0; i < deferreds.length; i++) {
 			var deferred = deferreds[i];
 			deferred.done(function(data) {
+				var underlying = this.stocks();
 				var newStock = new Stock(data);
 				var oldStock = _.find(underlying, function(x) {
 					x = x();

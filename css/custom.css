@@ -46,11 +46,11 @@
 }
 
 .stockRow {
-background:white;
--webkit-transition:background 1s;
--moz-transition:background 1s;
--o-transition:background 1s;
-transition:background 1s
+	//background:white;
+	-webkit-transition:background 1s;
+	-moz-transition:background 1s;
+	-o-transition:background 1s;
+	transition:background 1s
 }
 
 .rowChangedPlus {
@@ -59,4 +59,16 @@ transition:background 1s
 
 .rowChangedNegativ {
 	background:red;
+}
+
+.newsRowChanged {
+	background: black;
+}
+
+.newsRow {
+	//background:white; This style was not applied. Maybe we should make this selector more specific
+	-webkit-transition:background 1s;
+	-moz-transition:background 1s;
+	-o-transition:background 1s;
+	transition:background 1s
 }

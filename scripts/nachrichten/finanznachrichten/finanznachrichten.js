@@ -1,4 +1,4 @@
-define(["./entry"], function(Entity) {
+define(["./news"], function(Entity) {
 	var Finanznachrichten = function() {};
 	
 	Finanznachrichten.prototype.loadSingle = function(rssIdentifier) {
@@ -19,7 +19,8 @@ define(["./entry"], function(Entity) {
 			var title = item.find("title").text();
 			var description = item.find("description").text();
 			var link = item.find("link").text();
-			return new Entity(title, description, link);
+			var pubDate = item.find("pubDate").text();
+			return new Entity(title, description, link, pubDate);
 		}.bind(this));
 		
 		return {

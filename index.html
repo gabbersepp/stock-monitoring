@@ -27,7 +27,7 @@
 								<div class="col-md-2"><span class="label-default">Datum: </span></div>					
 							</div>
 							<div data-bind="foreach: stocks">
-								<div class="row stockRow" data-bind="notifyChangeInRow:{hasChanged:$data.hasChanged, controlColor: $data.difference()}">
+								<div class="row stockRow" data-bind="notifyChangeInRow:{hasChanged:$data.hasChanged, cssClass: $data.notifyChangeRowClass()}">
 									<div class="col-md-2"><div data-bind="text:$data.name"></div></div>
 									<div class="col-md-2"><div data-bind="text:$data.previousClose"></div></div>
 									<div class="col-md-2"><div data-bind="text:$data.lastPrice"></div> </div>
@@ -50,7 +50,7 @@
 								<div class="panel-heading stockName" data-bind="text: $data.stockName"></div>
 								<div class="panel-body stockBox">
 									<div data-bind="foreach: news">
-									<div class="row">
+									<div class="row newsRow" data-bind="notifyChangeInRow:{hasChanged:$data.hasChanged, cssClass: $data.notifyChangeRowClass()}">
 										<div class="col-md-12 newsTitle"><a data-bind="attr: {href:$data.link}"><div data-bind="text:$data.title"></div></a></div>
 									</div>
 									<!--<div class="row newsText">

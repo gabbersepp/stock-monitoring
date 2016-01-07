@@ -25,6 +25,10 @@ define(["moment"], function(moment) {
 		}.bind(this));
 	};
 	
+	Stock.prototype.notifyChangeRowClass = function() {
+		return this.difference() < 0 ? "rowChangedNegativ" : "rowChangedPlus";
+	};
+	
 	Stock.prototype.merge = function(oldStock) {
 		this.oldValues.lastPrice = this.lastPrice();
 		
