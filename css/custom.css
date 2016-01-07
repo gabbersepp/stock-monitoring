@@ -72,3 +72,15 @@
 	-o-transition:background 1s;
 	transition:background 1s
 }
+
+.postRowChanged {
+	background: black;
+}
+
+.postRow {
+	//background:white; This style was not applied. Maybe we should make this selector more specific
+	-webkit-transition:background 1s;
+	-moz-transition:background 1s;
+	-o-transition:background 1s;
+	transition:background 1s
+}

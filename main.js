@@ -6,7 +6,7 @@ requirejs.config({
 });
 
 require(["knockout", "stockPrices/stockPrices", "nachrichten/nachrichten", "utils/refresh",
-	"footer/footer"], function(ko, stockPrices, nachrichten, refresh, footer) {
+	"footer/footer", "forum/forum"], function(ko, stockPrices, nachrichten, refresh, footer, forum) {
 	window.ko = window.ko || ko;
 	
 	require(["customBindings"], function() {
@@ -18,11 +18,13 @@ require(["knockout", "stockPrices/stockPrices", "nachrichten/nachrichten", "util
 		ko.applyBindings(stockPrices, $top_left[0]);
 		ko.applyBindings(nachrichten, $bottom[0]);
 		
-		//ko.applyBindings(stockPrices, $top_right[0]);
+		ko.applyBindings(forum, $top_right[0]);
 		//ko.applyBindings(stockPrices, $bottom[0]);
 		ko.applyBindings(footer, $footer[0]);
 		
 		refresh.refresh(stockPrices.load.bind(stockPrices), 70);
 		refresh.refresh(nachrichten.load.bind(nachrichten), 60*15);
+		refresh.refresh(forum.load.bind(forum), 60*15);
+		
 	});
 });

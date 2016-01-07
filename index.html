@@ -39,7 +39,22 @@
 					</div>
 				</div>
 				
-				<div id="top_right" class="col-md-6">blub</div>
+				<div id="top_right" class="col-md-6">
+					<div class="panel panel-default panel-body">
+						<div data-bind="foreach: postsPerStock">
+							<div class="panel panel-default">
+								<div class="panel-heading stockName" data-bind="text: $data.stockName"></div>
+								<div class="panel-body stockBox">
+									<div data-bind="foreach: posts">
+									<div class="row postRow" data-bind="notifyChangeInRow:{hasChanged:$data.hasChanged, cssClass: $data.notifyChangeRowClass()}">
+										<div class="col-md-12 postTitle"><a data-bind="attr: {href:$data.link}"><div data-bind="text:$data.description"></div></a></div>
+									</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
 			</div>
 			
 			<div class="row">
