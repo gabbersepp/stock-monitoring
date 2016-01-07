@@ -1,0 +1,41 @@
+.content {
+	margin-left: 10px;
+}
+
+.stockBox {
+	padding-bottom: 3px;
+	padding-top:3px;
+}
+
+.stockName {
+	font-weight:bold;
+	font-size:7pt;
+}
+
+.newsTitle {
+	font-weight:bold;
+	font-size:10pt;
+	padding-bottom: 6px;
+}
+
+.newsText {
+	font-size:7pt;
+}
+
+.label-default {
+	font-size: 7pt;
+	font-weight: bold;
+	background-color: white;
+}
+
+.diff {
+	font-weight: bold;
+}
+
+.diffPlus {
+	color: green;
+}
+
+.diffMinus {
+	color: red;
+}

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>My Sample Project</title>
+        <script src="scripts/jquery.js"></script>
+
+		<script src="scripts/moment.js"></script>
+        <script data-main="main.js" src="scripts/require.js"></script>
+		<link rel="stylesheet" href="css/bootstrap.css">
+		<link rel="stylesheet" href="css/custom.css">
+		
+		    <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+		<div class="container content">
+			<div class="row">
+				<div id="top_left" class="col-md-6">
+					<div class="panel panel-default panel-body">
+						<div class="row">
+							<div class="col-md-2"><span class="label-default">Aktie: </span></div>
+							<div class="col-md-2"><span class="label-default">Vortag: </span></div>
+							<div class="col-md-2"><span class="label-default">Kurs: </span></div>
+							<div class="col-md-2"><span class="label-default">+/-: </span></div>
+							<div class="col-md-2"><span class="label-default">Datum: </span></div>					
+						</div>
+						<div data-bind="foreach: stocks">
+							<div class="row">
+								<div class="col-md-2"><div data-bind="text:$data.name"></div></div>
+								<div class="col-md-2"><div data-bind="text:$data.previousClose"></div></div>
+								<div class="col-md-2"><div data-bind="text:$data.lastPrice"></div> </div>
+								<div class="col-md-2"><div data-bind="text:$data.difference, css: $data.differenceClass"></div> </div>
+								<div class="col-md-2"><div data-bind="text:$data.formattedTime"></div></div>
+							</div>
+						</div>
+					</div>
+				</div>
+				
+				<div id="top_right" class="col-md-6">blub</div>
+			</div>
+			
+			<div class="row">
+				<div id="bottom" class="col-md-12">
+					<div class="panel panel-default panel-body">
+						<div data-bind="foreach: newsPerStock">
+							<div class="panel panel-default">
+								<div class="panel-heading stockName" data-bind="text: $data.stockName"></div>
+								<div class="panel-body stockBox">
+									<div data-bind="foreach: news">
+									<div class="row">
+										<div class="col-md-12 newsTitle"><div data-bind="text:$data.title"></div></div>
+									</div>
+									<!--<div class="row newsText">
+										<div class="col-md-12"><div data-bind="text:$data.description"></div></div>
+									</div>//-->
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<div id="footer" class="row">
+				<div data-bind="text: $data.now" class="col-md-12"></div>
+			</div>
+		</div>
+		
+		<script src="scripts/bootstrap.js"></script>
+    </body>
+</html>
