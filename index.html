@@ -47,7 +47,7 @@
 								<div class="panel-body stockBox">
 									<div data-bind="foreach: news">
 									<div class="row">
-										<div class="col-md-12 newsTitle"><div data-bind="text:$data.title"></div></div>
+										<div class="col-md-12 newsTitle"><a data-bind="attr: {href:$data.link}"><div data-bind="text:$data.title"></div></a></div>
 									</div>
 									<!--<div class="row newsText">
 										<div class="col-md-12"><div data-bind="text:$data.description"></div></div>

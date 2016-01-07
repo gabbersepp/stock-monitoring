@@ -18,7 +18,8 @@ define(["./entry"], function(Entity) {
 			item = $(item);
 			var title = item.find("title").text();
 			var description = item.find("description").text();
-			return new Entity(title, description);
+			var link = item.find("link").text();
+			return new Entity(title, description, link);
 		}.bind(this));
 		
 		return {
