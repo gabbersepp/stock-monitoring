@@ -39,3 +39,8 @@
 .diffMinus {
 	color: red;
 }
+
+.priceHeader {
+	font-size: 7pt;
+	font-weight: bold;
+}

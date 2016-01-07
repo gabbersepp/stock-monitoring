@@ -5,13 +5,27 @@ define(["yahoo/yahoo", "yahoo/stock", "knockout"], function(yahoo, Stock, ko) {
 	};
 	
 	StockPrices.prototype.load = function() {
-		this.stocks([]);
+		var underlying = this.stocks();
 		var deferreds = yahoo.loadPrices(this.symbols);
 		
 		for(var i = 0; i < deferreds.length; i++) {
 			var deferred = deferreds[i];
 			deferred.done(function(data) {
-				this.stocks.push(new Stock(data));
+				var newStock = new Stock(data);
+				var oldStock = _.find(underlying, function(x) {
+					x = x();
+					return x.symbol === newStock.symbol;
+				});
+				
+				if(oldStock) {
+					oldStock().merge.call(oldStock(), newStock);
+				}else{
+					underlying.push(ko.observable(newStock));
+				}
+				
+				underlying.sort(function(a,b){return a().compareTo(b());});
+				
+				this.stocks.valueHasMutated();
 			}.bind(this));
 		}
 

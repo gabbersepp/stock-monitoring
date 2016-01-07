@@ -5,6 +5,8 @@
         <script src="scripts/jquery.js"></script>
 
 		<script src="scripts/moment.js"></script>
+		<script src="scripts/underscore.js"></script>
+		
         <script data-main="main.js" src="scripts/require.js"></script>
 		<link rel="stylesheet" href="css/bootstrap.css">
 		<link rel="stylesheet" href="css/custom.css">
@@ -15,21 +17,23 @@
 		<div class="container content">
 			<div class="row">
 				<div id="top_left" class="col-md-6">
-					<div class="panel panel-default panel-body">
-						<div class="row">
-							<div class="col-md-2"><span class="label-default">Aktie: </span></div>
-							<div class="col-md-2"><span class="label-default">Vortag: </span></div>
-							<div class="col-md-2"><span class="label-default">Kurs: </span></div>
-							<div class="col-md-2"><span class="label-default">+/-: </span></div>
-							<div class="col-md-2"><span class="label-default">Datum: </span></div>					
-						</div>
-						<div data-bind="foreach: stocks">
+					<div class="panel panel-default">
+						<div class="panel-body">
 							<div class="row">
-								<div class="col-md-2"><div data-bind="text:$data.name"></div></div>
-								<div class="col-md-2"><div data-bind="text:$data.previousClose"></div></div>
-								<div class="col-md-2"><div data-bind="text:$data.lastPrice"></div> </div>
-								<div class="col-md-2"><div data-bind="text:$data.difference, css: $data.differenceClass"></div> </div>
-								<div class="col-md-2"><div data-bind="text:$data.formattedTime"></div></div>
+								<div class="col-md-2"><span class="label-default">Aktie: </span></div>
+								<div class="col-md-2"><span class="label-default">Vortag: </span></div>
+								<div class="col-md-2"><span class="label-default">Kurs: </span></div>
+								<div class="col-md-2"><span class="label-default">+/-: </span></div>
+								<div class="col-md-2"><span class="label-default">Datum: </span></div>					
+							</div>
+							<div data-bind="foreach: stocks">
+								<div class="row">
+									<div class="col-md-2"><div data-bind="text:$data.name"></div></div>
+									<div class="col-md-2"><div data-bind="text:$data.previousClose"></div></div>
+									<div class="col-md-2"><div data-bind="text:$data.lastPrice"></div> </div>
+									<div class="col-md-2"><div data-bind="text:$data.difference(), css: $data.differenceClass"></div> </div>
+									<div class="col-md-2"><div data-bind="text:$data.formattedTime"></div></div>
+								</div>
 							</div>
 						</div>
 					</div>
