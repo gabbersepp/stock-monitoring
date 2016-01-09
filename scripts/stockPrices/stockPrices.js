@@ -1,3 +1,4 @@
+//http://wern-ancheta.com/blog/2015/04/05/getting-started-with-the-yahoo-finance-api/
 define(["yahoo/yahoo", "yahoo/stock", "knockout"], function(yahoo, Stock, ko) {
 	var StockPrices = function() {
 		this.stocks = ko.observableArray([]); // fix for the first time

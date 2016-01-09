@@ -22,7 +22,7 @@ define(function() {
 	
 	Post.prototype.merge = function(that) {
 		this.oldValues.date = this.date();
-		this.date(that.date() + Date.now());
+		this.date(that.date());
 		this.title(that.title());
 		this.description(that.description());
 		this.link(that.link());
