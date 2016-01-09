@@ -1,12 +1,11 @@
 requirejs.config({
-    baseUrl: 'js',
+    baseUrl: 'scripts',
     paths: {
-        app: '../main',
-		scripts: '../../scripts'
+        app: '../main'
     }
 });
 
-require(["scripts/knockout", "stockPrices/stockPrices", "nachrichten/nachrichten", "utils/refresh",
+require(["knockout", "stockPrices/stockPrices", "nachrichten/nachrichten", "utils/refresh",
 	"footer/footer", "forum/forum"], function(ko, stockPrices, nachrichten, refresh, footer, forum) {
 	window.ko = window.ko || ko;
 	
