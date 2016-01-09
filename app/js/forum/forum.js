@@ -1,4 +1,4 @@
-define(["./finanzennet/finanzennet", "knockout"], function(forum, ko) {
+define(["./finanzennet/finanzennet", "scripts/knockout"], function(forum, ko) {
 	var max = 1;
 	var Forum = function() {
 		this.postsPerStock = ko.observableArray([]);

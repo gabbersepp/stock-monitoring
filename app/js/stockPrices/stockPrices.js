@@ -1,5 +1,5 @@
 //http://wern-ancheta.com/blog/2015/04/05/getting-started-with-the-yahoo-finance-api/
-define(["yahoo/yahoo", "yahoo/stock", "knockout"], function(yahoo, Stock, ko) {
+define(["yahoo/yahoo", "yahoo/stock", "scripts/knockout"], function(yahoo, Stock, ko) {
 	var StockPrices = function() {
 		this.stocks = ko.observableArray([]); // fix for the first time
 		this.symbols = ["WDI.DE", "VT9.DE", "MYRK.F", "DPW.DE"];

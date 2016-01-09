@@ -1,4 +1,4 @@
-define(["moment"], function(moment) {
+define(["scripts/moment"], function(moment) {
 	var Stock = function(data) {
 		var splits = data.replace(/\"/g, "").split(",");
 		this.name = splits[4];

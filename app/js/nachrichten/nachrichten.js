@@ -1,4 +1,4 @@
-define(["./finanznachrichten/finanznachrichten", "knockout"], function(finanznachrichten, ko) {
+define(["./finanznachrichten/finanznachrichten", "scripts/knockout"], function(finanznachrichten, ko) {
 	var max = 2;
 	var Finanznachrichten = function() {
 		this.newsPerStock = ko.observableArray([]);
