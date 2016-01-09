@@ -1,0 +1,12 @@
+<div data-bind="foreach: newsPerStock">
+    <div class="panel panel-default">
+        <div class="panel-heading stockName" data-bind="text: $data.stockName"></div>
+        <div class="panel-body stockBox">
+            <div data-bind="foreach: news">
+                <div class="row newsRow" data-bind="notifyChangeInRow:{hasChanged:$data.hasChanged, cssClass: $data.notifyChangeRowClass()}">
+                    <div class="col-md-12 newsTitle"><a data-bind="attr: {href:$data.link}"><div data-bind="text:$data.title"></div></a></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

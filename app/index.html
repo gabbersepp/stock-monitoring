@@ -18,70 +18,19 @@
 			<div class="row">
 				<div id="top_left" class="col-md-6">
 					<div class="panel panel-default">
-						<div class="panel-body">
-							<div class="row">
-								<div class="col-md-2"><span class="label-default">Aktie: </span></div>
-								<div class="col-md-2"><span class="label-default">Vortag: </span></div>
-								<div class="col-md-2"><span class="label-default">Kurs: </span></div>
-								<div class="col-md-2"><span class="label-default">+/-: </span></div>
-								<div class="col-md-2"><span class="label-default">Datum: </span></div>					
-							</div>
-							<div data-bind="foreach: stocks">
-								<div class="row stockRow" data-bind="notifyChangeInRow:{hasChanged:$data.hasChanged, cssClass: $data.notifyChangeRowClass()}">
-									<div class="col-md-2"><div data-bind="text:$data.name"></div></div>
-									<div class="col-md-2"><div data-bind="text:$data.previousClose"></div></div>
-									<div class="col-md-2"><div data-bind="text:$data.lastPrice"></div> </div>
-									<div class="col-md-2"><div data-bind="text:$data.difference(), css: $data.differenceClass"></div> </div>
-									<div class="col-md-2"><div data-bind="text:$data.formattedTime"></div></div>
-								</div>
-							</div>
-						</div>
+						<div class="panel-body" data-bind="component: 'stockPrices'"></div>
 					</div>
 				</div>
 				
 				<div id="top_right" class="col-md-6">
-					<div class="panel panel-default panel-body">
-						<div data-bind="foreach: postsPerStock">
-							<div class="panel panel-default">
-								<div class="panel-heading stockName" data-bind="text: $data.stockName"></div>
-								<div class="panel-body stockBox">
-									<div data-bind="foreach: posts">
-									<div class="row postRow" data-bind="notifyChangeInRow:{hasChanged:$data.hasChanged, cssClass: $data.notifyChangeRowClass()}">
-										<div class="col-md-12 postTitle"><a data-bind="attr: {href:$data.link}"><div data-bind="text:$data.description"></div></a></div>
-									</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
+					<div class="panel panel-default panel-body" data-bind="component: 'forum'"></div>
 				</div>
 			</div>
-			
-			<div class="row">
-				<div id="bottom" class="col-md-12">
-					<div class="panel panel-default panel-body">
-						<div data-bind="foreach: newsPerStock">
-							<div class="panel panel-default">
-								<div class="panel-heading stockName" data-bind="text: $data.stockName"></div>
-								<div class="panel-body stockBox">
-									<div data-bind="foreach: news">
-									<div class="row newsRow" data-bind="notifyChangeInRow:{hasChanged:$data.hasChanged, cssClass: $data.notifyChangeRowClass()}">
-										<div class="col-md-12 newsTitle"><a data-bind="attr: {href:$data.link}"><div data-bind="text:$data.title"></div></a></div>
-									</div>
-									<!--<div class="row newsText">
-										<div class="col-md-12"><div data-bind="text:$data.description"></div></div>
-									</div>//-->
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			
-			<div id="footer" class="row">
-				<div data-bind="text: $data.now" class="col-md-12"></div>
-			</div>
+            <div class="row">
+                <div id="bottom" class="col-md-12">
+                    <div class="panel panel-default panel-body" data-bind="component: 'news'"></div>
+                </div>
+            </div>
 		</div>
 		
 		<script src="../scripts/bootstrap.js"></script>

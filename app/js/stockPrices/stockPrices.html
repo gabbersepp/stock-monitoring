@@ -1,0 +1,16 @@
+<div class="row">
+    <div class="col-md-2"><span class="label-default">Aktie: </span></div>
+    <div class="col-md-2"><span class="label-default">Vortag: </span></div>
+    <div class="col-md-2"><span class="label-default">Kurs: </span></div>
+    <div class="col-md-2"><span class="label-default">+/-: </span></div>
+    <div class="col-md-2"><span class="label-default">Datum: </span></div>
+</div>
+<div data-bind="foreach: stocks">
+    <div class="row stockRow" data-bind="notifyChangeInRow:{hasChanged:$data.hasChanged, cssClass: $data.notifyChangeRowClass()}">
+        <div class="col-md-2"><div data-bind="text:$data.name"></div></div>
+        <div class="col-md-2"><div data-bind="text:$data.previousClose"></div></div>
+        <div class="col-md-2"><div data-bind="text:$data.lastPrice"></div> </div>
+        <div class="col-md-2"><div data-bind="text:$data.difference(), css: $data.differenceClass"></div> </div>
+        <div class="col-md-2"><div data-bind="text:$data.formattedTime"></div></div>
+    </div>
+</div>
