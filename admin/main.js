@@ -3,7 +3,8 @@ requirejs.config({
     paths: {
         app: '../main',
 		scripts: '../../scripts',
-		text: "../../scripts/text"
+		text: "../../scripts/text",
+        api: '../../api'
     }
 });
 

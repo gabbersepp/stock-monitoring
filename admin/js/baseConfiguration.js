@@ -1,4 +1,4 @@
-define(["configuration/entity/configEntry", "./configuration/datacontext"], function(ConfigEntry, datacontext) {
+define(["configuration/entity/configEntry", "api/js/datacontext"], function(ConfigEntry, datacontext) {
     var BaseConfiguration = function(params) {
         this.entity = params.entity;
         this.data = ko.observableArray();
@@ -7,13 +7,6 @@ define(["configuration/entity/configEntry", "./configuration/datacontext"], func
             array.push.apply(array, this.data());
             return array;
         }.bind(this));
-
-        /*ko.observableArray();
-        this.data.subscribe(function() {
-            var ar = [new ConfigEntry("")];
-            ar.push.apply(ar, this.data());
-            this.rowsToRender(ar);
-        }.bind(this));*/
 
         this.load();
         // trigger first call of subscription
