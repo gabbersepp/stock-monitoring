@@ -7,7 +7,7 @@ requirejs.config({
     }
 });
 
-require(["scripts/knockout", "utils/refresh", "stockPrices/stockPrices", "forum/forum", "nachrichten/nachrichten", "components"], function(ko, refresh, stockPrices, forum, news) {
+require(["scripts/knockout", "utils/refresh", "stockPrices/stockPrices", "forum/forum", "nachrichten/nachrichten", "components", "../config"], function(ko, refresh, stockPrices, forum, news) {
 	window.ko = window.ko || ko;
 	
 	require(["customBindings"], function() {

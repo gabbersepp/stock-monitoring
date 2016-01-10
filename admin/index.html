@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Sample Project</title>
+    <script src="../scripts/jquery.js"></script>
+
+    <script src="../scripts/moment.js"></script>
+    <script src="../scripts/underscore.js"></script>
+
+    <script data-main="main.js" src="../scripts/require.js"></script>
+    <link rel="stylesheet" href="../css/bootstrap.css">
+    <link rel="stylesheet" href="css/custom.css">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+<div class="container content">
+    <div class="row">
+        <div class="panel panel-default col-md-4">
+            <div class="panel-heading">Kursdaten</div>
+            <div class="panel-body" data-bind="component: { name: 'baseConfiguration', params: { entity: 'stockPrices' } }"></div>
+        </div>
+        <div class="panel panel-default col-md-4">
+            <div class="panel-heading">Nachrichten</div>
+            <div class="panel-body" data-bind="component: { name: 'baseConfiguration', params: { entity: 'news' } }"></div>
+        </div>
+        <div class="panel panel-default col-md-4">
+            <div class="panel-heading">Forum</div>
+            <div class="panel-body" data-bind="component: { name: 'baseConfiguration', params: { entity: 'forum' } }"></div>
+        </div>
+    </div>
+</div>
+
+<script src="../scripts/bootstrap.js"></script>
+</body>
+</html>

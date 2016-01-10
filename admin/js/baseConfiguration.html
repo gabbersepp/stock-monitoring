@@ -1,0 +1,11 @@
+<ul class="list-group" data-bind="foreach: rowsToRender">
+    <li class="list-group-item">
+        <input data-bind="value: value" />
+        <button class="btn btn-default" data-bind="click: $parent.add.bind($parent)">
+            <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+        </button>
+        <a class="btn btn-default" data-bind="click: $parent.delete.bind($parent)">
+            <span class="glyphicon glyphicon-minus" aria-hidden="true"></span>
+        </a>
+    </li>
+</ul>
