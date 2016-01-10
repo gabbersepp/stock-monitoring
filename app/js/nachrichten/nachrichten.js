@@ -1,4 +1,4 @@
-define(["./finanznachrichten/finanznachrichten", "scripts/knockout", "/api/js/datacontext.js"], function(finanznachrichten, ko, datacontext) {
+define(["./finanznachrichten/finanznachrichten", "scripts/knockout", "../../api/js/datacontext.js"], function(finanznachrichten, ko, datacontext) {
 	var max = 2;
 	var Finanznachrichten = function() {
 		this.newsPerStock = ko.observableArray([]);

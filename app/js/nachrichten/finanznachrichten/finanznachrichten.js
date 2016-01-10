@@ -2,7 +2,7 @@ define(["./news"], function(Entity) {
 	var Finanznachrichten = function() {};
 	
 	Finanznachrichten.prototype.loadSingle = function(rssIdentifier) {
-		return $.get("http://biehler.morloc.de/signage/scripts/nachrichten/finanznachrichten/api.php", {id: rssIdentifier});
+		return $.get(window.config.adapterHost + "app/js/nachrichten/finanznachrichten/api.php", {id: rssIdentifier});
 	};
 	
 	Finanznachrichten.prototype.loadMulti = function(rssIdentifiers) {

@@ -1,4 +1,4 @@
-define(["./finanzennet/finanzennet", "scripts/knockout", "/api/js/datacontext.js"], function(forum, ko, datacontext) {
+define(["./finanzennet/finanzennet", "scripts/knockout", "../../api/js/datacontext.js"], function(forum, ko, datacontext) {
 	var max = 1;
 	var Forum = function() {
 		this.postsPerStock = ko.observableArray([]);

@@ -1,4 +1,4 @@
-define(["yahoo/yahoo", "yahoo/stock", "scripts/knockout", "/api/js/datacontext.js"], function(yahoo, Stock, ko, datacontext) {
+define(["yahoo/yahoo", "yahoo/stock", "scripts/knockout", "../../api/js/datacontext.js"], function(yahoo, Stock, ko, datacontext) {
 	var StockPrices = function() {
 		this.stocks = ko.observableArray([]);
 		this.symbols = [];

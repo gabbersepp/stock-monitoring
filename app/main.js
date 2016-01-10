@@ -3,8 +3,8 @@ requirejs.config({
     paths: {
         app: '../main',
         scripts: '../../scripts',
-        text: "../../scripts/text",
-        api123: '../api'
+        text: "../../scripts/text"//,
+        //api: '../../api' does not work??
     }
 });
 

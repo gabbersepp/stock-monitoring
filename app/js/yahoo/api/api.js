@@ -1,5 +1,5 @@
 define(function() {
-	var url = "http://biehler.morloc.de/signage/scripts/yahoo/api/api.php";
+	var url = window.config.adapterHost + "app/js/yahoo/api/api.php";
 	
 	var Api = function() {
 		

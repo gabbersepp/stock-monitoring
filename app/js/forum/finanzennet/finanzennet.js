@@ -2,7 +2,7 @@ define(["./post"], function(Post) {
 	var FinanzenForum = function() {};
 	
 	FinanzenForum.prototype.loadSingleThread = function(id) {
-		return $.get("http://biehler.morloc.de/signage/scripts/forum/finanzennet/api.php", {id: id});
+		return $.get(window.config.adapterHost + "app/js/forum/finanzennet/api.php", {id: id});
 	};
 	
 	FinanzenForum.prototype.loadMultipleThreads = function(ids) {
