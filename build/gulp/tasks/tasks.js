@@ -19,7 +19,7 @@ var walk = function(dir) {
         file = dir + '/' + file;
         var stat = fs.statSync(file);
         if (stat && stat.isDirectory()) results = results.concat(walk(file));
-        else results.push(file);
+        else results.push(file.replace("//", "/"));
     });
     return results;
 };
@@ -54,8 +54,12 @@ gulp.task('__ftp-upload', function(cb) {
     files.forEach(function(file) {
         var dirPath = path.dirname(file);
         // we do not want a message if the directory already exists
-        ftps.raw("mkdir -p -f " + dirPath.replace(paths.out.replace("./", ""), ""));
-        ftps.addFile(file, file);
+        var dir = dirPath.replace("build/out", "");
+        if(dirPath !== "") {
+            ftps.raw("mkdir -p -f " + dir.replace("//", "/"));
+        }
+
+        ftps.addFile(file, file.replace("build/out", "").replace("//", "/"));
     });
 
     ftps.exec(function(e) {

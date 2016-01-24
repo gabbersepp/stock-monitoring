@@ -20,8 +20,8 @@ module.exports = {
         remote: {
             ftp: {
                 host: config.deployment.remote.ftp.host,
-                user: config.deployment.remote.ftp.host.user,
-                pw: config.deployment.remote.ftp.host.pw,
+                user: config.deployment.remote.ftp.user,
+                pw: config.deployment.remote.ftp.pw,
                 port: config.deployment.remote.ftp.port,
                 baseDir: config.deployment.remote.ftp.baseDir
             }
