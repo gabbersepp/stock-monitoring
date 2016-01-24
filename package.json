@@ -1,0 +1,21 @@
+{
+  "name": "StockMonitoring",
+  "version": "0.0.0",
+  "description": "Stock monitoring with news overview",
+  "private": true,
+  "scripts": {
+    "registry": "npm config set registry https://registry.npmjs.org/",
+    "deploy:remote": "gulp deploy-remote",
+	"deploy:local": "gulp deploy-local"
+  },
+  "devDependencies": {
+    "ftps": "^0.4.2",
+    "gulp": "^3.9.0",
+    "gulp-change": "^1.0.0",
+    "gulp-debug": "^2.1.2",
+    "minimatch": "^3.0.0",
+    "require-dir": "^0.3.0",
+    "run-sequence": "^1.1.5",
+    "yargs": "^3.32.0"
+  }
+}

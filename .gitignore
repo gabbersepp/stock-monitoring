@@ -48,3 +48,6 @@ crashlytics-build.properties
 fabric.properties
 /api/config/stockMonitor.sqlite3
 /api/php/config/stockMonitor.sqlite3
+node_modules
+deploy
+out
