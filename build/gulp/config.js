@@ -1,27 +1,29 @@
+var config = require("../../gulp_config.js");
+
 module.exports = {
     api: {
         local: {
-            apiUrl: "http://localhost/api/",
-            adapterHost: "http://localhost/app"
+            apiUrl: config.api.local.apiUrl,
+            adapterHost: config.api.local.adapterHost
         },
         remote: {
-            apiUrl: "http://biehler.morloc.de/signage/api",
-            adapterHost: "http://biehler.morloc.de/signage/app"
+            apiUrl: config.api.remote.apiUrl,
+            adapterHost: config.api.remote.adapterHost
         }
     },
     deployment: {
         local: {
             fs: {
-                targetDir: "./build/deploy"
+                targetDir: config.deployment.local.fs.targetDir
             }
         },
         remote: {
             ftp: {
-                host: "ftp://136.243.232.112",
-                user: "test",
-                pw: "test",
-                port: 21,
-                baseDir: "./"
+                host: config.deployment.remote.ftp.host,
+                user: config.deployment.remote.ftp.host.user,
+                pw: config.deployment.remote.ftp.host.pw,
+                port: config.deployment.remote.ftp.port,
+                baseDir: config.deployment.remote.ftp.baseDir
             }
         }
     }
