@@ -21,7 +21,7 @@ module.exports = {
                 user: "",
                 pw: "",
                 port: 21,
-                baseDir: ""
+                baseDir: "./"
             }
         }
     }
