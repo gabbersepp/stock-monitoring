@@ -14,5 +14,14 @@ define(function() {
 				}, 600);
 			}
 		}
-	}
+	};
+
+	ko.bindingHandlers.componentLoadCallback = {
+		init: function (element, valueAccessor) {
+			var value = ko.unwrap(valueAccessor());
+			if (value) {
+				value(element);
+			}
+		}
+	};
 });
