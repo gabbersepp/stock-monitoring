@@ -3,8 +3,16 @@ define(["yahoo/yahoo", "yahoo/stock", "scripts/knockout", "../../api/js/datacont
 		this.stocks = ko.observableArray([]);
 		this.symbols = [];
 		this.loadSymbols();
+		this.$view = null;
+		this.$scoll = null;
+		this.scroller = null;
 	};
-	
+
+	StockPrices.prototype.attached = function(view) {
+		this.$view = $(view);
+		this.$scroll = this.$view.find("#stockContainer");
+	};
+
 	StockPrices.prototype.load = function() {
 		if(this.symbols.length > 0) {
 			var deferreds = yahoo.loadPrices(this.symbols);
