@@ -1,5 +1,6 @@
 .content {
 	margin-left: 10px;
+	width: 95vw;
 }
 
 .stockBox {
@@ -81,4 +82,17 @@
 	-moz-transition:background 1s;
 	-o-transition:background 1s;
 	transition:background 1s
+}
+
+.halfViewPort {
+	height: 48vh;
+}
+
+.scrollContainer {
+	height: 100%;
+	overflow: hidden;
+}
+
+.scrollContainer > div:hover {
+	box-shadow: 0 10px 6px -6px #777;
 }

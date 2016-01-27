@@ -1,4 +1,4 @@
-<div data-bind="foreach: postsPerStock">
+<div data-bind="foreach: postsPerStock, shift: { list: postsPerStock, time: 2000 }" class="scrollContainer">
     <div class="panel panel-default">
         <div class="panel-heading stockName" data-bind="text: $data.stockName"></div>
         <div class="panel-body stockBox">

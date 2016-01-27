@@ -5,7 +5,7 @@
     <div class="col-md-2"><span class="label-default">+/-: </span></div>
     <div class="col-md-2"><span class="label-default">Datum: </span></div>
 </div>
-<div data-bind="foreach: stocks">
+<div data-bind="foreach: stocks, shift: { list: stocks, time: 2000 }" class="scrollContainer">
     <div class="row stockRow" data-bind="notifyChangeInRow:{hasChanged:$data.hasChanged, cssClass: $data.notifyChangeRowClass()}">
         <div class="col-md-2"><div data-bind="text:$data.name"></div></div>
         <div class="col-md-2"><div data-bind="text:$data.previousClose"></div></div>
