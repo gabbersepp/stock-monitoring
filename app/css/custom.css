@@ -86,6 +86,9 @@
 
 .halfViewPort {
 	height: 48vh;
+	max-height: 48vh;
+	overflow: hidden;
+	margin-top: 10px;
 }
 
 .scrollContainer {
@@ -95,4 +98,21 @@
 
 .scrollContainer > div:hover {
 	box-shadow: 0 10px 6px -6px #777;
+}
+
+.chartContainer {
+	height: calc(48vh - 30px);
+	max-height: calc(48vh - 30px);
+}
+
+#bottom_right, #bottom_left, #top_right, #top_left {
+	height: 100%;
+}
+
+#bottom_left > div, #bottom_right > div, #top_right > div, #top_left > div {
+	height: 100%;
+}
+
+#bottom_left > div > div, #bottom_right > div > div, #top_right > div > div, #top_left > div > div {
+	height: 100%;
 }

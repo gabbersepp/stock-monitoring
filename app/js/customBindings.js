@@ -16,7 +16,7 @@ define(function() {
 		}
 	};
 
-	ko.bindingHandlers.componentLoadCallback = {
+	ko.bindingHandlers.attached = {
 		init: function (element, valueAccessor) {
 			var value = ko.unwrap(valueAccessor());
 			if (value) {

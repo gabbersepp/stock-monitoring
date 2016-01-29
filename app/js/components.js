@@ -1,4 +1,4 @@
-define(["scripts/knockout", "stockPrices/stockPrices", "nachrichten/nachrichten", "forum/forum"], function(ko, stockPrices, nachrichten, forum) {
+define(["scripts/knockout", "stockPrices/stockPrices", "nachrichten/nachrichten", "forum/forum", "chart/charts"], function(ko, stockPrices, nachrichten, forum, charts) {
     ko.components.register('stockPrices', {
        viewModel: { instance: stockPrices },
         template: { require: "text!stockPrices/stockPrices.html" }
@@ -12,5 +12,10 @@ define(["scripts/knockout", "stockPrices/stockPrices", "nachrichten/nachrichten"
     ko.components.register("forum", {
        viewModel: { instance: forum },
         template: { require: "text!forum/forum.html" }
+    });
+
+    ko.components.register("charts", {
+        viewModel: { instance: charts },
+        template: { require: "text!chart/charts.html" }
     });
 });

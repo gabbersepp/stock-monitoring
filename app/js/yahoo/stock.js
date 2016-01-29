@@ -8,7 +8,7 @@ define(["scripts/moment"], function(moment) {
 		this.lastPrice = ko.observable(splits[2]);
 		this.priceBeforeLastPrice;
 		this.time = ko.observable(moment(splits[1] + " " + splits[0] + "a", "MM/DD/YYYY HH:mma"));
-		this.symbol = splits[5];
+		this.symbol = splits[5].trim();
 		
 		this.difference = ko.observable(Math.round((this.lastPrice() - this.previousClose) * 100) / 100);
 		this.differenceClass = ko.observable(this.difference() < 0 ? "diff diffMinus" : "diff diffPlus");

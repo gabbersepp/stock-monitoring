@@ -2,9 +2,22 @@ define(["yahoo/yahoo", "yahoo/stock", "scripts/knockout", "../../api/js/datacont
 	var StockPrices = function() {
 		this.stocks = ko.observableArray([]);
 		this.symbols = [];
-		this.loadSymbols();
+
+		this.afterPointLoaded = null;
+		this.afterSymbolsLoaded = null;
+
 	};
-	
+
+	StockPrices.prototype.init = function(settings) {
+		settings = ko.utils.extend({
+			afterPointLoaded: null,
+			afterSymbolsLoaded: null
+		}, settings);
+
+		this.afterPointLoaded = settings.afterPointLoaded;
+		this.afterSymbolsLoaded = settings.afterSymbolsLoaded;
+	};
+
 	StockPrices.prototype.load = function() {
 		if(this.symbols.length > 0) {
 			var deferreds = yahoo.loadPrices(this.symbols);
@@ -23,6 +36,10 @@ define(["yahoo/yahoo", "yahoo/stock", "scripts/knockout", "../../api/js/datacont
 						oldStock().merge.call(oldStock(), newStock);
 					}else{
 						underlying.push(ko.observable(newStock));
+					}
+
+					if (this.afterPointLoaded) {
+						this.afterPointLoaded(newStock);
 					}
 
 					underlying.sort(function(a,b){return a().compareTo(b());});
@@ -44,6 +61,10 @@ define(["yahoo/yahoo", "yahoo/stock", "scripts/knockout", "../../api/js/datacont
 			}.bind(this));
 			this.symbols = ar;
             this.load();
+
+			if(this.afterSymbolsLoaded) {
+				this.afterSymbolsLoaded(_.clone(ar));
+			}
 		}.bind(this));
 	};
 	
